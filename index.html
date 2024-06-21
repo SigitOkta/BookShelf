@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BookShelf App</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="wrapper_inner">
+			<div class="vertical_wrap">
+                <div class="backdrop"></div>
+                <div class="vertical_bar">
+                    <div class="profile_info">
+                        <p class="title">By Sigit</p>
+                        <p class="sub_title">oktasigit@gmail.com</p>
+                    </div>
+                    <ul class="menu">
+                        <li><a href="#hero">
+                            <span class="text">Home</span>
+                        </a></li>
+                        <li><a href="#input" >
+                            <span class="text">Add Book</span>
+                        </a></li>
+                        <li><a href="#search-id">
+                            <span class="text">Search Books</span>
+                        </a></li>
+                        <li><a href="#books-list-id">
+                            <span class="text">Books List</span>
+                        </a></li>
+
+                    </ul>
+			    </div>
+		</div>
+		<div class="main_container">
+			<div class="top_bar">
+				<div class="hamburger" data-feather="menu">
+					<i class="fas fa-bars"></i>
+				</div>
+                <div class="image">
+                    <img src="img/book-shelf.png" alt="Coding logo">
+                </div>
+                <div class="logo">                   
+					BookShelf <span>App</span>
+				</div>
+			</div>
+
+			<div class="container">
+				<section class="hero" id="hero">
+                    <main class="content">
+                        <h1>A <span>Book shelf</span> is a window to the world</h1>
+                    </main>
+                </section>
+                <div class="content-container">
+                    <section class="input" id="input">
+                        <div class="image-bookshelf">
+                            <img src="img/ilus_book_room.svg" alt="book-room">
+                        </div>
+                        <div class="input-section">
+                            <h2>Add a new Book</h2>
+                            <form id="inputBook">
+                                <div class="input">
+                                    <label for="inputBookTitle">Title</label>
+                                    <input id="inputBookTitle" type="text" placeholder="ex : Lord of the Ring" required>
+                                </div>
+                                <div class="input">
+                                    <label for="inputBookAuthor">Author</label>
+                                    <input id="inputBookAuthor" type="text" required placeholder="ex : 	J. R. R. Tolkien">
+                                </div>
+                                <div class="input">
+                                    <label for="inputBookYear">Year</label>
+                                    <input id="inputBookYear" type="number" required placeholder="ex : 1996">
+                                </div>
+                                <div class="input">
+                                    <label for="inputCategory">Categories</label>
+                                    <select name="Category" id="inputCategory" class="category" required>
+                                        <option value="" selected>Choose a book category...</option>
+                                        <option value="Adventure">Adventure</option>
+                                        <option value="Biographies">Biographies</option>
+                                        <option value="Classics">Classics</option>
+                                        <option value="Comic">Comic</option>
+                                        <option value="Crime">Crime Fiction</option>
+                                        <option value="Fantasy">Fantasy</option>
+                                        <option value="Horror">Horror</option>
+                                        <option value="Mystery">Mystery</option>
+                                        <option value="Romance">Romance</option>
+                                        <option value="Thriller">Thriller</option>
+                                        <option value="History">History</option>
+                                    </select>
+                                </div>
+                                <div class="input_inline">
+                                    <label for="inputBookIsComplete">I have read the book</label>
+                                    <input id="inputBookIsComplete" type="checkbox">
+                                </div>
+                                <button id="bookSubmit" type="submit">Store the book on the shelf</button>
+                            </form>
+                        </div>
+                    </section>
+                    <section class="search-section" id="search-id">
+                        <div class="searchCard">
+                            <div class="search" id="search">
+                                <h3>Search Books</h3>
+                                <div class="search-box">
+                                    <input id="searchBookTitle" class="searchBookTitle" type="text" name=""
+                                        placeholder="Search title book..">
+                                    <button id="searchSubmit" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dialog not-found">
+                                <span class="close-dialog" id="close-dialog">x</span>
+                                <h2>No results found!</h2>
+                                <p>Please try a different search term.</p>
+                                
+                            </div>
+                              
+                            <div class="dialog found">
+                                <span class="close-dialog" id="close-dialog">x</span>
+                                <span class="close-dialog">x</span>
+                                <h2>Results found!</h2>
+                                <p>Here are the books that matcsh your search.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="books-section" id="books-list-id">
+                        <div class="bookshelf">
+                            <div class="container-books" id="reading-list">
+                                <h2>Reading List</h2>
+                                <div id="incompleteBookshelfList" class="book_list">
+                                </div>
+                            </div>
+                            <div class="container-books" id="finished-book">
+                                <h2>Finished Book</h2>
+                                <div id="completeBookshelfList" class="book_list">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>    
+			</div>
+		</div>
+		</div>
+	</div>
+    <div id="snackbar"></div>
+    <div id="id01" class="modal">
+        <span class="close" id="xclose" title="Close Modal">×</span>
+        <form class="modal-content">
+          <div class="container">
+            <h1>Delete Book</h1>
+            <p>Are you sure you want to delete your book?</p>
+          
+            <div class="clearfix">
+              <button type="button" class="cancelbtn" id="cancelbtn">Cancel</button>
+              <button type="button" class="deletebtn" id="deletebtn">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
+<script src="js/script.js">
+</script>
+</body>
+</html>
